@@ -3,23 +3,14 @@
 using namespace std;
 
 int main() {
-    int number, temp, counter = 0;
-    cout << "Enter a number: ";
-    cin >> number;
-    int result_digit = 0, digit;
-    int my_pow = 1;
-    temp = number;
-    for (; temp;)
-    {
-        digit = temp % 10;
-        if (digit != 3 && digit != 6)
-        {
-            result_digit += digit * my_pow;
-            my_pow *= 10;
+    int a;
+    cout << "Enter an integer A: ";
+    cin >> a;
+    cout << "Integers B, for which " << a << " is divisible by B*B but not divisible by B*B*B:" << endl;
+    for (int b = 1; b <= a; ++b) {
+        if (a % (b * b) == 0 && a % (b * b * b) != 0) {
+            cout << b << endl;
         }
-        temp /= 10;
-
     }
-    cout << result_digit << endl;
     return 0;
 }
