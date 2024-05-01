@@ -1,21 +1,17 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
 
 int main() {
-    int a;
-    cout << "Enter an integer a: ";
-    cin >> a;
-    int sum = 0;
-    for (int i = a; i != 0; i /= 10) {
-        sum += i % 10;
+    int number;
+    cout << "Enter an integer: ";
+    cin >> number;
+    cout << "The number " << number << " divides evenly into: ";
+    for (int i = 1; i <= number; ++i) {
+        if (number % i == 0) {
+            cout << i << " ";
+        }
     }
-    int cube = sum * sum * sum;
-    if (cube == a * a) {
-        cout << "The cube of the sum of the digits of " << a << " is equal to " << a * a << endl;
-    }
-    else {
-        cout << "The cube of the sum of the digits of " << a << " is not equal to " << a * a << endl;
-    }
+    cout << endl;
     return 0;
 }
+
