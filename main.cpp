@@ -1,32 +1,36 @@
 #include <iostream>
-#include <ctime>
 using namespace std;
 
 int main() {
-	srand(time(0));
-	const int MIN_NUMBER = 1;
-	const int MAX_NUMBER = 500;
-	int secretNumber = rand() % 1 + 499;
-	int guess;
-	cout << "Guess the number from " << MIN_NUMBER << " to " << MAX_NUMBER << endl;
-	cout << "Enter 0 to exit the game." << endl;
-	for (size_t i = 1; ; i++)
-	{
-		cout << "Attempt " << i << ": ";
-		cin >> guess;
-		if (guess == 0) {
-			cout << "You are out of the game." << endl;
-		}
-		else if (guess < secretNumber) {
-			cout << "More" << endl;
-		}
-		else if (guess > secretNumber) {
-			cout << "Less" << endl;
-		}
-		else {
-			break;
-		}
-	}
-	cout << "You guessed the number " << secretNumber << "!" << endl;
-	return 0;
+    double amount;
+    int choice;
+    for (;;) {
+        cout << "Select an operation:" << endl;
+        cout << "1. Convert dollars to euros" << endl;
+        cout << "2. Convert euros to dollars" << endl;
+        cout << "0. Exit" << endl;
+        cout << "Your choice: ";
+        cin >> choice;
+
+        if (choice == 0) {
+            cout << "Goodbye!" << endl;
+            break;
+        }
+
+        switch (choice) {
+        case 1:
+            cout << "Enter the amount in dollars: ";
+            cin >> amount;
+            cout << amount << " dollars equals " << amount * 0.85 << " euros" << endl;
+            break;
+        case 2:
+            cout << "Enter the amount in euros: ";
+            cin >> amount;
+            cout << amount << " euros equals " << amount / 0.85 << " dollars" << endl;
+            break;
+        default:
+            cout << "Invalid option" << endl;
+        }
+    }
+    return 0;
 }
