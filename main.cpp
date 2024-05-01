@@ -1,36 +1,17 @@
 #include <iostream>
-#include <ctime>
 using namespace std;
 
 int main() {
-	srand(time(0));
-	const int MIN_NUMBER = 1;
-	const int MAX_NUMBER = 500;
-	int secretNumber = rand() % 499 + 1;
-	int guess;
-	time_t startTime, endTime;
-	cout << "Guess the number from " << MIN_NUMBER << " to " << MAX_NUMBER << endl;
-	cout << "Enter 0 to exit the game." << endl;
-	startTime = time(0);
-	for (size_t i = 1; ; i++)
-	{
-		cout << "Attempt " << i << ": ";
-		cin >> guess;
-		if (guess == 0) {
-			cout << "You are out of the game." << endl;
-		}
-		else if (guess < secretNumber) {
-			cout << "More" << endl;
-		}
-		else if (guess > secretNumber) {
-			cout << "Less" << endl;
-		}
-		else {
-			break;
-		}
-	}
-	endTime = time(0);
-	cout << "Time spent on the game " << (endTime - startTime) << " seconds" << endl;
-	cout << "You guessed the number " << secretNumber << "!" << endl;
+    int count = 0;
+    for (int i = 100; i <= 999; ++i)
+    {
+        int hundreds = i / 100;
+        int tens = (i / 10) % 10;
+        int units = i % 10;
+        if (hundreds == tens || hundreds == units || tens == units) {
+            ++count;
+        }
+    }
+    cout << "The number of integers in the range from 100 to 999 that have two identical digits: " << count << endl;
 	return 0;
 }
